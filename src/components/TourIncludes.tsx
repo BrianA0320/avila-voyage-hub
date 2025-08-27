@@ -132,27 +132,49 @@ const TourIncludes = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4">
                 <Shield className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Seguridad Garantizada</h4>
-              <p className="text-muted-foreground">Equipos certificados y guías profesionales</p>
+              <p className="text-muted-foreground">Equipos certificados, seguros incluidos y guías profesionales con más de 5 años de experiencia</p>
             </div>
             <div className="text-center">
               <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4">
                 <Star className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Experiencia Premium</h4>
-              <p className="text-muted-foreground">Tours exclusivos y personalizados</p>
+              <p className="text-muted-foreground">Tours exclusivos, grupos pequeños y experiencias personalizadas según tus preferencias</p>
             </div>
             <div className="text-center">
               <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4">
                 <Clock className="w-8 h-8 text-primary" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Disponible 24/7</h4>
-              <p className="text-muted-foreground">Soporte y asistencia en todo momento</p>
+              <p className="text-muted-foreground">Soporte completo antes, durante y después de tu aventura. Siempre estamos aquí para ti</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-primary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Lugares Únicos</h4>
+              <p className="text-muted-foreground">Acceso exclusivo a lugares paradisíacos que solo los locales conocen</p>
+            </div>
+          </div>
+          
+          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-background rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-primary mb-2">500+</div>
+              <p className="text-muted-foreground">Aventureros Felices</p>
+            </div>
+            <div className="bg-background rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-primary mb-2">10+</div>
+              <p className="text-muted-foreground">Años de Experiencia</p>
+            </div>
+            <div className="bg-background rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-primary mb-2">100%</div>
+              <p className="text-muted-foreground">Satisfacción Garantizada</p>
             </div>
           </div>
         </section>

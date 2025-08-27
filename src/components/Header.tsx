@@ -43,6 +43,12 @@ const Header = () => {
               ¿Por qué elegirnos?
             </button>
             <button 
+              onClick={() => scrollToSection('galeria')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Galería
+            </button>
+            <button 
               onClick={() => scrollToSection('reservation')}
               className="text-foreground hover:text-primary transition-colors"
             >
@@ -54,12 +60,12 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="hidden lg:flex items-center space-x-2 text-primary">
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-medium">+1 809 123 4567</span>
+              <span className="text-sm font-medium">809-498-6352</span>
             </div>
             <Button 
               size="sm" 
               className="bg-green-500 hover:bg-green-600 text-white"
-              onClick={() => window.open('https://wa.me/18091234567', '_blank')}
+              onClick={() => window.open('https://wa.me/18094986352', '_blank')}
             >
               <MessageCircle className="w-4 h-4 mr-1" />
               WhatsApp
