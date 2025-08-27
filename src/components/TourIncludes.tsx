@@ -1,21 +1,77 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Mountain, Star, Shield, Clock, Users } from "lucide-react";
+import { MapPin, Mountain, Shield, Clock, Users, ChevronDown, ChevronUp, Car, Waves, Star } from "lucide-react";
+import { useState } from "react";
+import buggyTourImg from "@/assets/buggy-tour.jpg";
+import atvTourImg from "@/assets/atv-tour.jpg";
+import yachtPartyImg from "@/assets/yacht-party.jpg";
 
 const TourIncludes = () => {
+  const [expandedTour, setExpandedTour] = useState<number | null>(null);
+
   const tours = [
     {
       id: 1,
       title: "Tours en Buggy",
       description: "Aventuras todo terreno por los paisajes más espectaculares de República Dominicana",
       price: "Desde $75",
-      image: "https://images.unsplash.com/photo-1544965503-7ad532d7a8b0?w=800&h=600&fit=crop",
+      image: buggyTourImg,
       features: [
         "Guía certificado",
         "Equipo de seguridad", 
         "4 horas de duración"
       ],
-      highlights: ["Playas paradisíacas", "Exploración de cuevas", "Cultura dominicana", "Gastronomía local"]
+      details: [
+        "Transporte desde hotel incluido",
+        "Visita a cenotes y cuevas naturales",
+        "Parada en playa virgen", 
+        "Degustación de café dominicano",
+        "Seguro de accidentes incluido",
+        "Fotografías profesionales",
+        "Refrigerios y agua"
+      ]
+    },
+    {
+      id: 2,
+      title: "Excursiones ATV 4x4",
+      description: "Explora senderos extremos y paisajes únicos con nuestros ATVs de última generación",
+      price: "Desde $85",
+      image: atvTourImg,
+      features: [
+        "Guía especializado",
+        "Equipo de protección completo",
+        "3.5 horas de aventura"
+      ],
+      details: [
+        "Recogida en hoteles principales",
+        "Entrenamiento de seguridad previo",
+        "Ruta por montañas y selva",
+        "Vista panorámica desde miradores",
+        "Visita a cascada natural",
+        "Almuerzo típico dominicano",
+        "Certificado de participación"
+      ]
+    },
+    {
+      id: 3,
+      title: "Fiesta en Yate",
+      description: "Disfruta de una experiencia exclusiva navegando por aguas cristalinas del Caribe",
+      price: "Desde $95",
+      image: yachtPartyImg,
+      features: [
+        "Capitán profesional",
+        "Bebidas incluidas",
+        "5 horas de diversión"
+      ],
+      details: [
+        "Yate privado para grupos pequeños",
+        "Barra libre de bebidas nacionales",
+        "Almuerzo gourmet a bordo",
+        "Equipo de snorkel incluido",
+        "Música y sistema de sonido",
+        "Paradas en islas paradisíacas",
+        "Animación y juegos acuáticos"
+      ]
     }
   ];
 
@@ -52,7 +108,9 @@ const TourIncludes = () => {
                 </div>
                 <div className="absolute top-4 left-4">
                   <div className="bg-primary text-primary-foreground p-2 rounded-full">
-                    <Mountain className="w-6 h-6" />
+                    {tour.id === 1 ? <Car className="w-6 h-6" /> : 
+                     tour.id === 2 ? <Mountain className="w-6 h-6" /> :
+                     <Waves className="w-6 h-6" />}
                   </div>
                 </div>
               </div>
@@ -66,23 +124,44 @@ const TourIncludes = () => {
               
               <CardContent className="pt-0">
                 <div className="space-y-4">
-                  {/* Features */}
+                  {/* Basic Features */}
                   <div className="space-y-2">
                     {tour.features.map((feature, index) => (
                       <div key={index} className="flex items-center text-sm text-muted-foreground">
-                        <Star className="w-4 h-4 text-secondary mr-2" />
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                         {feature}
                       </div>
                     ))}
                   </div>
                   
+                  {/* Expandable Details */}
+                  {expandedTour === tour.id && (
+                    <div className="space-y-2 border-t pt-4">
+                      <h4 className="font-semibold text-foreground mb-2">Lo que incluye:</h4>
+                      {tour.details.map((detail, index) => (
+                        <div key={index} className="flex items-center text-sm text-muted-foreground">
+                          <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
+                          {detail}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  
                   {/* Action Buttons */}
                   <div className="flex gap-3 pt-4">
                     <Button 
                       className="flex-1 bg-primary hover:bg-primary/90"
-                      onClick={scrollToReservation}
+                      onClick={() => setExpandedTour(expandedTour === tour.id ? null : tour.id)}
                     >
-                      Ver Detalles
+                      {expandedTour === tour.id ? (
+                        <>
+                          Ocultar Detalles <ChevronUp className="w-4 h-4 ml-2" />
+                        </>
+                      ) : (
+                        <>
+                          Ver Más Detalles <ChevronDown className="w-4 h-4 ml-2" />
+                        </>
+                      )}
                     </Button>
                     <Button 
                       variant="outline" 
@@ -96,29 +175,6 @@ const TourIncludes = () => {
               </CardContent>
             </Card>
           ))}
-          
-          {/* Coming Soon Cards */}
-          <Card className="overflow-hidden border-dashed border-2 border-muted-foreground/30 bg-muted/20">
-            <CardContent className="flex flex-col items-center justify-center h-full text-center p-8">
-              <div className="bg-muted-foreground/10 p-4 rounded-full mb-4">
-                <Mountain className="w-8 h-8 text-muted-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Excursiones ATV 4x4</h3>
-              <p className="text-muted-foreground mb-4">Próximamente disponible</p>
-              <span className="text-lg font-bold text-muted-foreground">Desde $85</span>
-            </CardContent>
-          </Card>
-          
-          <Card className="overflow-hidden border-dashed border-2 border-muted-foreground/30 bg-muted/20">
-            <CardContent className="flex flex-col items-center justify-center h-full text-center p-8">
-              <div className="bg-muted-foreground/10 p-4 rounded-full mb-4">
-                <Users className="w-8 h-8 text-muted-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Aventuras Polaris</h3>
-              <p className="text-muted-foreground mb-4">Próximamente disponible</p>
-              <span className="text-lg font-bold text-muted-foreground">Desde $95</span>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Why Choose Us Section */}
