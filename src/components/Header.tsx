@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
+import avilaLogo from "@/assets/avila-explorer-logo.png";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,9 +14,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="bg-primary text-primary-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg mr-3">
-              AE
-            </div>
+            <img 
+              src={avilaLogo} 
+              alt="Avila Explorer Logo" 
+              className="w-12 h-12 mr-3"
+            />
             <div>
               <h1 className="text-xl font-bold text-foreground">Avila Explorer</h1>
               <p className="text-xs text-muted-foreground">¡Vive la aventura!</p>

@@ -1,8 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Upload, Camera, Heart } from "lucide-react";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 const Gallery = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const samplePhotos = [
     {
       id: 1,
@@ -36,6 +41,15 @@ const Gallery = () => {
     }
   ];
 
+  const openModal = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section id="galeria" className="py-20 px-4 bg-muted/30">
       <div className="max-w-6xl mx-auto">
@@ -58,8 +72,12 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {samplePhotos.map((photo) => (
-            <Card key={photo.id} className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-105 border-none shadow-md">
+          {samplePhotos.map((photo, index) => (
+            <Card 
+              key={photo.id} 
+              className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover:scale-105 border-none shadow-md cursor-pointer"
+              onClick={() => openModal(index)}
+            >
               <div className="relative">
                 <img 
                   src={photo.url} 
@@ -99,6 +117,13 @@ const Gallery = () => {
             Enviar Mis Fotos
           </Button>
         </div>
+
+        <ImageModal 
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          images={samplePhotos}
+          currentIndex={currentImageIndex}
+        />
       </div>
     </section>
   );
