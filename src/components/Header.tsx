@@ -21,7 +21,6 @@ const Header = () => {
             />
             <div>
               <h1 className="text-xl font-bold text-foreground">Golden Pass Travel</h1>
-              <p className="text-xs text-muted-foreground">¡Vive la aventura!</p>
             </div>
           </div>
 
