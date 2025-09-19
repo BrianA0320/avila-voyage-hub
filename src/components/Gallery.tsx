@@ -111,7 +111,7 @@ const Gallery = () => {
           <Button 
             variant="outline" 
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            onClick={() => window.open('https://wa.me/18094986352?text=¡Hola! Quiero compartir fotos de mi experiencia con Avila Explorer', '_blank')}
+            onClick={() => window.open('https://wa.me/18094986352?text=¡Hola! Quiero compartir fotos de mi experiencia con Golden Pass Travel', '_blank')}
           >
             <Camera className="w-4 h-4 mr-2" />
             Enviar Mis Fotos
