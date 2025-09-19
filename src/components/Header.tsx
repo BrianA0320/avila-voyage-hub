@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-import avilaLogo from "@/assets/avila-explorer-logo.png";
+import goldenPassLogo from "@/assets/golden-pass-logo.png";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,12 +15,12 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src={avilaLogo} 
-              alt="Avila Explorer Logo" 
+              src={goldenPassLogo} 
+              alt="Golden Pass Travel Logo" 
               className="w-12 h-12 mr-3"
             />
             <div>
-              <h1 className="text-xl font-bold text-foreground">Avila Explorer</h1>
+              <h1 className="text-xl font-bold text-foreground">Golden Pass Travel</h1>
               <p className="text-xs text-muted-foreground">¡Vive la aventura!</p>
             </div>
           </div>
