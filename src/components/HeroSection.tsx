@@ -28,7 +28,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
           ¡Vive la aventura,<br />
-          <span className="text-secondary">descubre el paraíso!</span>
+          <span className="text-primary">descubre el paraíso!</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
           Excursiones extremas, acuáticas y paradisíacas en República Dominicana. Tu próxima aventura te está esperando.
@@ -38,7 +38,7 @@ const HeroSection = () => {
           <Button 
             onClick={scrollToExcursiones}
             size="lg" 
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
           >
             Explora Ahora →
           </Button>
