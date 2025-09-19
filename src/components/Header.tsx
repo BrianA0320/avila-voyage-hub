@@ -9,10 +9,9 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b">
+    <header className="bg-card shadow-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-16">{/* Logo */}
           <div className="flex items-center">
             <img 
               src={goldenPassLogo} 
@@ -20,7 +19,7 @@ const Header = () => {
               className="w-12 h-12 mr-3"
             />
             <div>
-              <h1 className="text-xl font-bold text-foreground">Golden Pass Travel</h1>
+              <h1 className="text-xl font-bold text-card-foreground">Golden Pass Travel</h1>
             </div>
           </div>
 
